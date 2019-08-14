@@ -11,10 +11,8 @@
 |
  */
 
-Route::get('/', function () {
-    $data = ['name' => 'Rover', 'say' => '嗨！'];
-    return view('welcome', $data);
-});
+Route::get('/', 'ProductController@index')->name('index');
+Route::get('/product', 'ProductController@index')->name('product.index');
 
 Auth::routes();
 
