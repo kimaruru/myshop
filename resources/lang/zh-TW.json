@@ -16,5 +16,7 @@
     "Register": "註冊",
     "Name": "姓名",
     "Logout": "登出",
-    "You are logged in!": "登入成功！"
+    "You are logged in!": "登入成功！",
+    "Address": "地址",
+    "Tel": "連絡電話"
 }
