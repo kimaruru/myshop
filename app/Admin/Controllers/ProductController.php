@@ -6,6 +6,7 @@ use App\Product;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
 class ProductController extends AdminController
@@ -76,5 +77,20 @@ class ProductController extends AdminController
         $form->number('price', __('Price'));
 
         return $form;
+    }
+
+    public function index(Content $content)
+    {
+        return $content
+            ->header('商品管理')
+            ->description('管理所有賣場商品')
+            ->body($this->grid());
+    }
+    public function create(Content $content)
+    {
+        return $content
+            ->header('新增商品')
+            ->description('新增賣場商品')
+            ->body($this->form());
     }
 }
