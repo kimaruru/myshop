@@ -17,5 +17,4 @@ Route::get('/', 'ProductController@index')->name('index');
 Route::get('/product', 'ProductController@index')->name('product.index');
 Route::get('/product/{product}', 'ProductController@show')->name('product.show');
 Route::post('/cart', 'CartController@store')->name('cart.store');
-
 Route::get('/home', 'HomeController@index')->name('home');
