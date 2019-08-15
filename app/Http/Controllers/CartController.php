@@ -14,7 +14,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $carts = $request->user()->carts()->get();
+    return view('cart.index', compact('carts'));
+}
     }
 
     /**
