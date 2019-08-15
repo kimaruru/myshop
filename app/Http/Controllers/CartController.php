@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Cart;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('product.index', compact('products'));
-
+        //
     }
 
     /**
@@ -37,28 +35,33 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart             = new Cart;
+        $cart->user_id    = $request->user()->id;
+        $cart->product_id = $request->product_id;
+        $cart->amount     = $request->amount;
+        $cart->save();
+        return [];
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Cart $cart)
     {
-        return view('product.show')->with('product', $product);
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -67,10 +70,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Cart $cart)
     {
         //
     }
@@ -78,10 +81,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Cart $cart)
     {
         //
     }
